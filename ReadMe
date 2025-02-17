@@ -1,0 +1,17 @@
+This code file contains three main neuron models and various functions related to synaptic plasticity and data visualization. 
+The first part simulates a Leaky Integrate-and-Fire (LIF) neuron model, including a version with spiking behavior 
+induced by a current injection. 
+It initializes voltage and time variables, updates the voltage in a loop, tracks spike times, and visualizes the resulting 
+voltage values. 
+The second part uses the Izhikevich model, which simulates more biologically realistic neuron behavior by incorporating 
+recovery variables. 
+This model also includes mechanisms for inducing spikes and resetting the voltage, and the results are plotted for 
+visualization.
+
+The file also discusses synapses and neuron training methods, such as rate encoding, temporal encoding, and 
+Spike-Timing-Dependent Plasticity (STDP). 
+Various plotting functions are included to create raster plots and visualize STDP effects. Helper functions are provided to 
+generate Poisson spike trains 
+and compute synaptic weight changes. Libraries like `matplotlib`, `numpy`, and `ipywidgets` are used to facilitate 
+data visualization and interactivity. 
+Overall, the code provides a comprehensive simulation environment for understanding neuron behavior and synaptic plasticity.
