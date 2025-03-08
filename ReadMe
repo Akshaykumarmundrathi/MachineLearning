@@ -1,4 +1,8 @@
-This code file contains three main neuron models and various functions related to synaptic plasticity and data visualization. 
+
+Use SP500 Dataset csv file to run the Pre-processing code.
+
+
+LIF_Izhikevich code file contains three main neuron models and various functions related to synaptic plasticity and data visualization. 
 The first part simulates a Leaky Integrate-and-Fire (LIF) neuron model, including a version with spiking behavior 
 induced by a current injection. 
 It initializes voltage and time variables, updates the voltage in a loop, tracks spike times, and visualizes the resulting 
