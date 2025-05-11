@@ -1,21 +1,88 @@
 
-Use SP500 Dataset csv file to run the Pre-processing code.
+# Learning Permutation Matrix Patterns in the NARMA Dataset with Spiking Neural Networks
 
+## Overview
 
-LIF_Izhikevich code file contains three main neuron models and various functions related to synaptic plasticity and data visualization. 
-The first part simulates a Leaky Integrate-and-Fire (LIF) neuron model, including a version with spiking behavior 
-induced by a current injection. 
-It initializes voltage and time variables, updates the voltage in a loop, tracks spike times, and visualizes the resulting 
-voltage values. 
-The second part uses the Izhikevich model, which simulates more biologically realistic neuron behavior by incorporating 
-recovery variables. 
-This model also includes mechanisms for inducing spikes and resetting the voltage, and the results are plotted for 
-visualization.
+This project explores the application of Spiking Neural Networks (SNNs) for classifying structured financial time series data. We use permutation matrices derived from S&P 500 index segments (NARMA dataset) as input, and evaluate the ability of a single-layer SNN to recognize temporal patterns using spike-based computation and fixed synaptic weights.  
+The codebase includes data preprocessing, spike train encoding, SNN simulation, and performance evaluation.
 
-The file also discusses synapses and neuron training methods, such as rate encoding, temporal encoding, and 
-Spike-Timing-Dependent Plasticity (STDP). 
-Various plotting functions are included to create raster plots and visualize STDP effects. Helper functions are provided to 
-generate Poisson spike trains 
-and compute synaptic weight changes. Libraries like `matplotlib`, `numpy`, and `ipywidgets` are used to facilitate 
-data visualization and interactivity. 
-Overall, the code provides a comprehensive simulation environment for understanding neuron behavior and synaptic plasticity.
+## Table of Contents
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Results](#results)
+- [Project Structure](#project-structure)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- Required packages (see [requirements.txt](requirements.txt)):
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+
+### Installation
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/your_username/your_repo.git
+    cd your_repo
+    ```
+
+2. **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Prepare the data:**
+   - Place your S&P 500 CSV file as `SP500.csv` in the project directory.
+
+## Usage
+
+- **Run the main classification pipeline:**
+    ```bash
+    python classify.py
+    ```
+- The script will:
+    - Preprocess the data into permutation matrices
+    - Encode inputs as spike trains
+    - Simulate the SNN and output predictions
+    - Save a confusion matrix plot and sample input visualizations
+
+## Results
+
+- The SNN achieved selective recognition of canonical trends, with an overall accuracy of ~38% on the NARMA dataset (522 samples).
+- Confusion matrices and analysis of error types (false positives, always-firing, etc.) are generated for further insight.
+
+## Project Structure
+
+```
+.
+├── classify.py                # Main SNN classification script
+├── DataPreprocessing.py         # Data preprocessing and matrix generation
+├── neuron.py                  # Spiking neuron class
+├── recep_field.py             # Receptive field transformation
+├── spike_train.py             # Spike train encoding
+├── weight_initialization.py   # Synaptic weight initialization
+├── SP500.csv                  # S&P 500 data (user-provided)
+└── README.md
+```
+
+## Dependencies
+
+See [requirements.txt](requirements.txt) for the full list.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for improvements or bug fixes.
+
+## Acknowledgements
+
+- Inspired by foundational SNN research and the seed paper on biologically plausible learning.
+- See references in the project report for related work.
